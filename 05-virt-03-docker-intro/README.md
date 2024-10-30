@@ -79,9 +79,9 @@ version: "3"
 services:
   portainer:
     image: portainer/portainer-ce:latest
-
     ports:
-      - "9000:9000"
+      - 8000:8000
+      - 9443:9443
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
 ```
