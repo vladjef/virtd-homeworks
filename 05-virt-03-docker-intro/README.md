@@ -79,7 +79,7 @@ version: "3"
 services:
   portainer:
     image: portainer/portainer-ce:latest
-    network_mode: host
+
     ports:
       - "9000:9000"
     volumes:
@@ -91,7 +91,7 @@ version: "3"
 services:
   registry:
     image: registry:2
-    network_mode: host
+
     ports:
     - "5000:5000"
 ```
