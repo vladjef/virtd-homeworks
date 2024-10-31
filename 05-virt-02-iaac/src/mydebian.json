@@ -18,7 +18,14 @@
         {
             "type": "shell",
             "inline": [
-                "echo 'hello from packer'"
+                "echo 'hello from packer'",
+                "echo set debconf to Noninteractive",
+                "echo 'debconf debconf/frontend select Noninteractive' | sudo debconf-set-selections",
+                "curl -fsSL https://get.docker.com -o get-docker.sh",
+                "sudo sh ./get-docker.sh",
+                "sudo apt-get update -y",
+                "sudo apt-get install -y htop",
+                "sudo apt-get install -y tmux"
             ]
         }
     ]
