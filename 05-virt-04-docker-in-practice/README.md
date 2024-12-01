@@ -31,10 +31,16 @@ See 'snap info docker' for additional versions.
 ## Задача 1
 1. Сделайте в своем github пространстве fork [репозитория](https://github.com/netology-code/shvirtd-example-python/blob/main/README.md).
    Примечание: В связи с доработкой кода python приложения. Если вы уверены что задание выполнено вами верно, а код python приложения работает с ошибкой то используйте вместо main.py файл old_main.py(просто измените CMD)
-3. Создайте файл с именем ```Dockerfile.python``` для сборки данного проекта(для 3 задания изучите https://docs.docker.com/compose/compose-file/build/ ). Используйте базовый образ ```python:3.9-slim```. 
+2. Создайте файл с именем ```Dockerfile.python``` для сборки данного проекта(для 3 задания изучите https://docs.docker.com/compose/compose-file/build/ ). Используйте базовый образ ```python:3.9-slim```. 
 Обязательно используйте конструкцию ```COPY . .``` в Dockerfile. Не забудьте исключить ненужные в имадже файлы с помощью dockerignore. Протестируйте корректность сборки.  
-4. (Необязательная часть, *) Изучите инструкцию в проекте и запустите web-приложение без использования docker в venv. (Mysql БД можно запустить в docker run).
-5. (Необязательная часть, *) По образцу предоставленного python кода внесите в него исправление для управления названием используемой таблицы через ENV переменную.
+3. (Необязательная часть, *) Изучите инструкцию в проекте и запустите web-приложение без использования docker в venv. (Mysql БД можно запустить в docker run).
+4. (Необязательная часть, *) По образцу предоставленного python кода внесите в него исправление для управления названием используемой таблицы через ENV переменную.
+
+## Ответы на задачу 1
+1. https://github.com/vladjef/shvirtd-example-python
+2. ![Screen_01](Screenshot_01.jpg)
+   ![Screen_01](Screenshot_02.jpg)
+
 ---
 ### ВНИМАНИЕ!
 !!! В процессе последующего выполнения ДЗ НЕ изменяйте содержимое файлов в fork-репозитории! Ваша задача ДОБАВИТЬ 5 файлов: ```Dockerfile.python```, ```compose.yaml```, ```.gitignore```, ```.dockerignore```,```bash-скрипт```. Если вам понадобилось внести иные изменения в проект - вы что-то делаете неверно!
@@ -46,6 +52,13 @@ See 'snap info docker' for additional versions.
 3. Соберите и залейте в него образ с python приложением из задания №1.
 4. Просканируйте образ на уязвимости.
 5. В качестве ответа приложите отчет сканирования.
+
+## Ответы на задачу 2
+1. ![Screen_01](Screenshot_03.jpg)
+   ![Screen_01](Screenshot_04.jpg)
+3. ![Screen_01](Screenshot_05.jpg)
+   ![Screen_01](Screenshot_06.jpg)
+5. ![Screen_01](Screenshot_07.jpg)
 
 ## Задача 3
 1. Изучите файл "proxy.yaml"
@@ -63,6 +76,10 @@ See 'snap info docker' for additional versions.
 
 6. Остановите проект. В качестве ответа приложите скриншот sql-запроса.
 
+## Ответ на задачу 3
+6. ![Screen_01](Screenshot_08.jpg)
+![Screen_01](Screenshot_09.jpg)
+
 ## Задача 4
 1. Запустите в Yandex Cloud ВМ (вам хватит 2 Гб Ram).
 2. Подключитесь к Вм по ssh и установите docker.
@@ -71,23 +88,49 @@ See 'snap info docker' for additional versions.
 5. (Необязательная часть) Дополнительно настройте remote ssh context к вашему серверу. Отобразите список контекстов и результат удаленного выполнения ```docker ps -a```
 6. В качестве ответа повторите  sql-запрос и приложите скриншот с данного сервера, bash-скрипт и ссылку на fork-репозиторий.
 
+## Ответ на задачу 4
+4. ![Screen_01](Screenshot_12.jpg)
+6. ![Screen_01](Screenshot_10.jpg)
+   ![Screen_01](Screenshot_11.jpg)
+[init.sh](init.sh)
+Ссылка на репо: https://github.com/vladjef/shvirtd-example-python
+
 ## Задача 5 (*)
 1. Напишите и задеплойте на вашу облачную ВМ bash скрипт, который произведет резервное копирование БД mysql в директорию "/opt/backup" с помощью запуска в сети "backend" контейнера из образа ```schnitzler/mysqldump``` при помощи ```docker run ...``` команды. Подсказка: "документация образа."
 2. Протестируйте ручной запуск
 3. Настройте выполнение скрипта раз в 1 минуту через cron, crontab или systemctl timer. Придумайте способ не светить логин/пароль в git!!
 4. Предоставьте скрипт, cron-task и скриншот с несколькими резервными копиями в "/opt/backup"
 
+## Ответы на задачу 5
+4. [cron/compose.yaml](cron/compose.yaml)
+[cron/crontab](cron/crontab)
+Почему-то пустые backup'ы:
+![Screen_01](Screenshot_20.jpg)
+
 ## Задача 6
 Скачайте docker образ ```hashicorp/terraform:latest``` и скопируйте бинарный файл ```/bin/terraform``` на свою локальную машину, используя dive и docker save.
 Предоставьте скриншоты  действий .
+
+## Ответы на задачу 6
+![Screen_01](Screenshot_13.jpg)
+![Screen_01](Screenshot_14.jpg)
+![Screen_01](Screenshot_15.jpg)
+![Screen_01](Screenshot_16.jpg)
+![Screen_01](Screenshot_17.jpg)
 
 ## Задача 6.1
 Добейтесь аналогичного результата, используя docker cp.  
 Предоставьте скриншоты  действий .
 
+## Ответы на задачу 6.1
+![Screen_01](Screenshot_18.jpg)
+
 ## Задача 6.2 (**)
 Предложите способ извлечь файл из контейнера, используя только команду docker build и любой Dockerfile.  
 Предоставьте скриншоты  действий .
+
+## Ответы на задачу 6.2
+![Screen_01](Screenshot_19.jpg)
 
 ## Задача 7 (***)
 Запустите ваше python-приложение с помощью runC, не используя docker или containerd.  
